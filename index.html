@@ -26,7 +26,7 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" id="myInput" placeholder="Type something..." onkeyup="myFunction()" aria-label="Search">
+                <input class="form-control mr-sm-2" type="text" id="myInput" placeholder="Type something..." onkeyup="searchFunction()" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Clear</button>
             </form>
@@ -38,29 +38,28 @@
                 <h3>Manage SportBuilds</h3>
                 <div class="left__block__intro-sort">
                     <h6>Sort by the most expensive SportBuild</h6>
-                    <!-- <button id="sPrice" class="btnSort">Sort By Price</button><br /> -->
-                     <label class="switch">
-                        <input type="checkbox" id="sPrice">
+                    <label class="switch">
+                        <input type="checkbox" id="sScale">
                         <span class="slider round"></span>
                     </label>
                 </div>
                 <hr>
                 <h5>Count by the most expensive SportBuild</h5>
-                <button class="btn btn-primary" onclick="arraySum(arr)">Count</button>
+                <button class="btn btn-primary" onclick="seatsCounter(arraySeats)">Count</button>
                 <h6>Total expenses:<span id="demo"></span></h6>
                 <div class="vl"></div>
             </div>
         </div>
         <div class="right__block">
             <div class="container">
-                <div class="row" id="myUL">
+                <div class="row" id="myCards">
                     <div class="card">
                         <div class="card_photo">
                             <h2>235x180</h2>
                         </div>
                         <div class="card_body">
                             <h5>Name of Sport:<span class="name">Jogging</span></h5>
-                            <h6>Number of seats:<span class="seats">566</span></h6>
+                            <h6>Number of seats:<span id="first_card_seats" class="seats">566</span></h6>
                             <h6>Year of foundation:<span class="year">2002</span></h6>
                             <h6>Location:<span class="location">Kyiv</span></h6>
                             <h6>Scale of field:<span class="scale">5400</span></h6>
@@ -74,7 +73,7 @@
                         </div>
                         <div class="card_body">
                             <h5>Name of Sport:<span class="name">Football</span></h5>
-                            <h6>Number of seats:<span class="seats">1050</span></h6>
+                            <h6>Number of seats:<span id="second_card_seats" class="seats">1050</span></h6>
                             <h6>Year of foundation:<span class="year">1998</span></h6>
                             <h6>Location:<span class="location">Lviv</span></h6>
                             <h6>Scale of field:<span class="scale">8500</span></h6>
@@ -88,7 +87,7 @@
                         </div>
                         <div class="card_body">
                             <h5>Name of Sport:<span class="name">Athletics</span></h5>
-                            <h6>Number of seats:<span class="seats">2005</span></h6>
+                            <h6>Number of seats:<span id="third_card_seats" class="seats">2005</span></h6>
                             <h6>Year of foundation:<span class="year">2050</span></h6>
                             <h6>Location:<span class="location">Dnipro</span></h6>
                             <h6>Scale of field:<span class="scale">10500</span></h6>
@@ -100,9 +99,9 @@
                         <div class="card_photo">
                             <h2>235x180</h2>
                         </div>
-                          <div class="card_body">
+                        <div class="card_body">
                             <h5>Name of Sport:<span class="name">Voleyball</span></h5>
-                            <h6>Number of seats:<span class="seats">762</span></h6>
+                            <h6>Number of seats:<span id="fourth_card_seats" class="seats">762</span></h6>
                             <h6>Year of foundation:<span class="year">984</span></h6>
                             <h6>Location:<span class="location">Odesa</span></h6>
                             <h6>Scale of field:<span class="scale">20500</span></h6>
