@@ -66,7 +66,6 @@ hr {
 
 }
 
-
 .card_photo {
     background-color: gray;
     width: 100%;
@@ -141,4 +140,15 @@ input:checked+.slider:before {
 }
 
 
+/* create and edit pages */
 
+.main__form {
+    margin: 0 auto;
+    width: 25%;
+    margin-top: 2%;
+}
+
+.main__form-title {
+    text-align: center;
+    margin-bottom: 15%;
+}

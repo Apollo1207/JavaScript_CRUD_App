@@ -2,14 +2,14 @@ var x = document.getElementById("first_card_seats").innerHTML;
 var y = document.getElementById("second_card_seats").innerHTML;
 var z = document.getElementById("third_card_seats").innerHTML;
 var k = document.getElementById("second_card_seats").innerHTML;
-var arraySeats = [x,y,z,k];
+var arraySeats = [x, y, z, k];
 
-function seatsCounter(arr){
-var sum = 0;
-for(var i = 0; i < arraySeats.length; i++){
-    sum += parseInt(arraySeats[i]);
+function seatsCounter(arr) {
+    var sum = 0;
+    for (var i = 0; i < arraySeats.length; i++) {
+        sum += parseInt(arraySeats[i]);
     }
-document.getElementById("demo").innerHTML = sum;
+    document.getElementById("demo").innerHTML = sum;
 }
 
 function searchFunction() {
@@ -36,7 +36,7 @@ function sortFunction(parent, childSelector, keySelector) {
         vA = parseFloat(vA)
         vB = parseFloat(vB)
         return (vA > vB) ? -1 : (vA < vB) ? 1 : 0;
-    }); 
+    });
     parent.append(items);
 }
 
