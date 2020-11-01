@@ -6,7 +6,7 @@
     <title>JavaScript CRUD App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
@@ -40,16 +40,16 @@
             <div class="left__block-intro">
                 <h3>Manage SportBuilds</h3>
                 <div class="left__block__intro-sort">
-                    <h6>Sort by the most expensive SportBuild</h6>
+                    <h6>Sort by scale of field</h6>
                     <label class="switch">
                         <input type="checkbox" id="sScale">
                         <span class="slider round"></span>
                     </label>
                 </div>
                 <hr>
-                <h5>Count by the most expensive SportBuild</h5>
+                <h5>Count by number of seats</h5>
                 <button class="btn btn-primary" onclick="seatsCounter(arraySeats)">Count</button>
-                <h6>Total expenses:<span id="demo"></span></h6>
+                <h6>Total seats:<span id="demo"></span></h6>
                 <div class="vl"></div>
             </div>
         </div>
@@ -116,7 +116,7 @@
             </div>
         </div>
     </section>
-    <script src="js/main.js"></script>
+    <script src="../static/js/main.js"></script>
 </body>
 
 </html>
