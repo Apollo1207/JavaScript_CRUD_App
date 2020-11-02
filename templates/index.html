@@ -12,26 +12,21 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="index.html">SportBuild</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">My SportBuilds</a>
+                    <a class="nav-link" href="{{ url_for('get_all_sport_builds') }}">My SportBuilds</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="create.html">Create SportBuild</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="edit.html">Edit SportBuild</a>
+                    <a class="nav-link" href="{{ url_for('create_sport_build') }}">Create SportBuild</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" id="myInput" placeholder="Type something..." onkeyup="searchFunction()" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Clear</button>
             </form>
         </div>
     </nav>
@@ -56,62 +51,22 @@
         <div class="right__block">
             <div class="container">
                 <div class="row" id="myCards">
+                    {% for sport_build in sport_builds %}
                     <div class="card">
                         <div class="card_photo">
                             <h2>235x180</h2>
                         </div>
                         <div class="card_body">
-                            <h5>Name of Sport:<span class="name">Jogging</span></h5>
-                            <h6>Number of seats:<span id="first_card_seats" class="seats">566</span></h6>
-                            <h6>Year of foundation:<span class="year">2002</span></h6>
-                            <h6>Location:<span class="location">Kyiv</span></h6>
-                            <h6>Scale of field:<span class="scale">5400</span></h6>
-                            <button type="button" class="btn btn-success">Edit</button>
-                            <button type="button" class="btn btn-danger">Remove</button>
+                            <h5>Name of Sport:<span class="name">{{sport_build.name_of_sport}}</span></h5>
+                            <h6>Number of seats:<span id="first_card_seats" class="seats">{{sport_build.number_of_seats}}</span></h6>
+                            <h6>Year of foundation:<span class="year">{{sport_build.year_of_foundation}}</span></h6>
+                            <h6>Location:<span class="location">{{sport_build.location}}</span></h6>
+                            <h6>Scale of field:<span class="scale">{{sport_build.scale_of_field}}</span></h6>
+                            <button type="button" onclick='window.location.href="/update/{{ sport_build.id }}"' class="btn btn-success">Edit</button>
+                            <button type="button" onclick='window.location.href="/delete/{{ sport_build.id }}"' class="btn btn-danger">Remove</button>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card_photo">
-                            <h2>235x180</h2>
-                        </div>
-                        <div class="card_body">
-                            <h5>Name of Sport:<span class="name">Football</span></h5>
-                            <h6>Number of seats:<span id="second_card_seats" class="seats">1050</span></h6>
-                            <h6>Year of foundation:<span class="year">1998</span></h6>
-                            <h6>Location:<span class="location">Lviv</span></h6>
-                            <h6>Scale of field:<span class="scale">8500</span></h6>
-                            <button type="button" class="btn btn-success">Edit</button>
-                            <button type="button" class="btn btn-danger">Remove</button>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card_photo">
-                            <h2>235x180</h2>
-                        </div>
-                        <div class="card_body">
-                            <h5>Name of Sport:<span class="name">Athletics</span></h5>
-                            <h6>Number of seats:<span id="third_card_seats" class="seats">2005</span></h6>
-                            <h6>Year of foundation:<span class="year">2050</span></h6>
-                            <h6>Location:<span class="location">Dnipro</span></h6>
-                            <h6>Scale of field:<span class="scale">10500</span></h6>
-                            <button type="button" class="btn btn-success">Edit</button>
-                            <button type="button" class="btn btn-danger">Remove</button>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card_photo">
-                            <h2>235x180</h2>
-                        </div>
-                        <div class="card_body">
-                            <h5>Name of Sport:<span class="name">Voleyball</span></h5>
-                            <h6>Number of seats:<span id="fourth_card_seats" class="seats">762</span></h6>
-                            <h6>Year of foundation:<span class="year">984</span></h6>
-                            <h6>Location:<span class="location">Odesa</span></h6>
-                            <h6>Scale of field:<span class="scale">20500</span></h6>
-                            <button type="button" class="btn btn-success">Edit</button>
-                            <button type="button" class="btn btn-danger">Remove</button>
-                        </div>
-                    </div>
+                    {%endfor%}
                 </div>
             </div>
         </div>
