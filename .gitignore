@@ -1,6 +1,14 @@
-# WebStorm files:
+# Python files:
+__pycache__
+__pycache__/*
+
+# IDE files:
 .idea
 .idea/*
 
+# Virual Environment files:
+venv
+venv/*
 
-
+# Keys
+secret.json

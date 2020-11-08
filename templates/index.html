@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript CRUD App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('get_all_sport_builds') }}">My SportBuilds</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('create_sport_build') }}">Create SportBuild</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" id="myInput" placeholder="Type something..." onkeyup="searchFunction()" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <section class="main__section">
+        <div class="left__block">
+            <div class="left__block-intro">
+                <h3>Manage SportBuilds</h3>
+                <div class="left__block__intro-sort">
+                    <h6>Sort by scale of field</h6>
+                    <label class="switch">
+                        <input type="checkbox" id="sScale">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <hr>
+                <h5>Count by number of seats</h5>
+                <button class="btn btn-primary" onclick="seatsCounter(arraySeats)">Count</button>
+                <h6>Total seats:<span id="demo"></span></h6>
+                <div class="vl"></div>
+            </div>
+        </div>
+        <div class="right__block">
+            <div class="container">
+                <div class="row" id="myCards">
+                    {% for sport_build in sport_builds %}
+                    <div class="card">
+                        <div class="card_photo">
+                            <h2>235x180</h2>
+                        </div>
+                        <div class="card_body">
+                            <h5>Name of Sport:<span class="name">{{sport_build.name_of_sport}}</span></h5>
+                            <h6>Number of seats:<span id="first_card_seats" class="seats">{{sport_build.number_of_seats}}</span></h6>
+                            <h6>Year of foundation:<span class="year">{{sport_build.year_of_foundation}}</span></h6>
+                            <h6>Location:<span class="location">{{sport_build.location}}</span></h6>
+                            <h6>Scale of field:<span class="scale">{{sport_build.scale_of_field}}</span></h6>
+                            <button type="button" onclick='window.location.href="/update/{{ sport_build.id }}"' class="btn btn-success">Edit</button>
+                            <button type="button" onclick='window.location.href="/delete/{{ sport_build.id }}"' class="btn btn-danger">Remove</button>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

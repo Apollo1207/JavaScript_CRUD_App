@@ -27,7 +27,6 @@ hr {
     margin: 2.5% auto 2.5% auto;
 }
 
-
 .left__block-intro {
     margin-top: 8%;
     margin-left: 5%;
@@ -38,8 +37,11 @@ hr {
 
 .right__block {
     width: 70%;
+}
 
-
+.row {
+    display: flex !important;
+    flex-direction: row !important;
 }
 
 .card {
@@ -138,7 +140,6 @@ input:checked+.slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
-
 
 /* create and edit pages */
 

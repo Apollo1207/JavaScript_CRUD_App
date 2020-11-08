@@ -6,42 +6,33 @@
     <title>JavaScript CRUD App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="index.html">SportBuild</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">My SportBuilds</a>
+                    <a class="nav-link" href="{{ url_for('get_all_sport_builds') }}">My SportBuilds</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="create.html">Create SportBuild</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="edit.html">Edit SportBuild</a>
+                    <a class="nav-link" href="{{ url_for('create_sport_build') }}">Create SportBuild</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" id="myInput" placeholder="Type something..." onkeyup="searchFunction()" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Clear</button>
             </form>
         </div>
     </nav>
-    <section class="edit__section">
+    <section class="create__section">
         <form class="main__form" name="myForm" onsubmit="checkTypeInputValue()" method="POST">
-            <h3 class="main__form-title">Edit SportBuild</h3>
-            <div class="form-group">
-                <label for="name">Name Of Sport</label>
-                <input type="text" class="form-control" id="name" name="name" maxlength="60" required>
-            </div>
+            <h3 class="main__form-title">Create SportBuild</h3>
             <div class="form-group">
                 <label for="seats">Number Of Seats</label>
                 <input type="text" class="form-control" id="seats" name="seats" maxlength="7" required>
@@ -58,11 +49,15 @@
                 <label for="scale">Scale Of Field</label>
                 <input type="text" class="form-control" id="scale" name="scale" maxlength="6" required>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="form-group">
+                <label for="name">Name Of Sport</label>
+                <input type="text" class="form-control" id="name" name="name" maxlength="60" required>
+            </div>
+            <button type="submit" id="submit_button" class="btn btn-primary">Submit</button>
         </form>
         </div>
     </section>
-    <script src="js/create&edit.js"></script>
+    <script src="../static/js/create&edit.js"></script>
 </body>
 
 </html>
